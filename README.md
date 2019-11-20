@@ -18,7 +18,7 @@ It is a JS plugin to animate your svgs on all browsers
 # Launching the plugin:
 ```
 document.addEventListener("DOMContentLoaded", function(event) {
-    let svgElement = document.body.querySelector('#testSVG');
+    let svgElement = document.body.querySelector('#YOUR_ID');
     jsvganimation.initSVG(svgElement);
 });
 ```
