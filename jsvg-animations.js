@@ -16,7 +16,18 @@ jQuery.easing["jswing"]=jQuery.easing["swing"];jQuery.extend(jQuery.easing,{ease
     this.jsvganimation = function() {}
 
     // Public Methods
-	jsvganimation.initSVG = function(svgElement) {
+	jsvganimation.initSVG = function(rootElement) {
+
+        let svgElement = null;
+        if(rootElement.tagName.toLowerCase() === "svg") {
+            svgElement = rootElement;
+        } else if(rootElement.tagName.toLowerCase() !== "svg") {
+            svgElement = rootElement.querySelector("svg");
+            if(svgElement.tagName.toLowerCase() !== "svg") {
+                console.log("rootElement and its chidlren have no SVG to be found !");
+            }
+        }
+
 		// INIT LINES
 		let svgLines = svgElement.querySelectorAll('path[data-type="line"]');
 		for (let i = 0, len = svgLines.length; i < len; i++) {
@@ -121,41 +132,4 @@ jQuery.easing["jswing"]=jQuery.easing["swing"];jQuery.extend(jQuery.easing,{ease
 	    $(path).stop(true).animate({"opacity": 0}, path.style.opacity * timing * 1000, "easeOutCubic");
 	}
 
-	function browserDetection() {   
-	    //Check if browser is IE or not
-	    if (navigator.userAgent.search("MSIE") >= 0) {
-	        return('IE');
-	    }
-	    //Check if browser is Chrome or not
-	    else if (navigator.userAgent.search("Chrome") >= 0) {
-	        return('chrome');
-	    }
-	    //Check if browser is Firefox or not
-	    else if (navigator.userAgent.search("Firefox") >= 0) {
-	        return('firefox');
-	    }
-	    //Check if browser is Safari or not
-	    else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-	        return('safari');
-	    }
-	    //Check if browser is Opera or not
-	    else if (navigator.userAgent.search("Opera") >= 0) {
-	        return('opera');
-	    }
-	}
-
-	function compouterDetection() {   
-	    if (navigator.userAgent.indexOf('Mac OS X') != -1) {
-	        return('mac');
-	    } else {
-	    	return('pc');
-	    }
-	}
-
 }());
-
-document.addEventListener("DOMContentLoaded", function(event) {
-    let svgElement = document.body.querySelector('#testSVG');
-    jsvganimation.initSVG(svgElement);
-});
-    

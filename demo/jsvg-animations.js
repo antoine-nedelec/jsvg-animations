@@ -132,36 +132,5 @@ jQuery.easing["jswing"]=jQuery.easing["swing"];jQuery.extend(jQuery.easing,{ease
 	    $(path).stop(true).animate({"opacity": 0}, path.style.opacity * timing * 1000, "easeOutCubic");
 	}
 
-	function browserDetection() {   
-	    //Check if browser is IE or not
-	    if (navigator.userAgent.search("MSIE") >= 0) {
-	        return('IE');
-	    }
-	    //Check if browser is Chrome or not
-	    else if (navigator.userAgent.search("Chrome") >= 0) {
-	        return('chrome');
-	    }
-	    //Check if browser is Firefox or not
-	    else if (navigator.userAgent.search("Firefox") >= 0) {
-	        return('firefox');
-	    }
-	    //Check if browser is Safari or not
-	    else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
-	        return('safari');
-	    }
-	    //Check if browser is Opera or not
-	    else if (navigator.userAgent.search("Opera") >= 0) {
-	        return('opera');
-	    }
-	}
-
-	function compouterDetection() {   
-	    if (navigator.userAgent.indexOf('Mac OS X') != -1) {
-	        return('mac');
-	    } else {
-	    	return('pc');
-	    }
-	}
-
 }());
     
