@@ -16,7 +16,18 @@ jQuery.easing["jswing"]=jQuery.easing["swing"];jQuery.extend(jQuery.easing,{ease
     this.jsvganimation = function() {}
 
     // Public Methods
-	jsvganimation.initSVG = function(svgElement) {
+	jsvganimation.initSVG = function(rootElement) {
+
+    	let svgElement = null;
+		if(rootElement.tagName.toLowerCase() === "svg") {
+			svgElement = rootElement;
+        } else if(rootElement.tagName.toLowerCase() !== "svg") {
+			svgElement = rootElement.querySelector("svg");
+            if(svgElement.tagName.toLowerCase() !== "svg") {
+                console.log("rootElement and its chidlren have no SVG to be found !");
+            }
+		}
+
 		// INIT LINES
 		let svgLines = svgElement.querySelectorAll('path[data-type="line"]');
 		for (let i = 0, len = svgLines.length; i < len; i++) {
