@@ -153,9 +153,4 @@ jQuery.easing["jswing"]=jQuery.easing["swing"];jQuery.extend(jQuery.easing,{ease
 	}
 
 }());
-
-document.addEventListener("DOMContentLoaded", function(event) {
-    let svgElement = document.body.querySelector('#testSVG');
-    jsvganimation.initSVG(svgElement);
-});
     
