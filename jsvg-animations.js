@@ -12,43 +12,43 @@ jQuery.easing["jswing"]=jQuery.easing["swing"];jQuery.extend(jQuery.easing,{ease
 // Plugin
 (function() {
 
-    // Define our constructor
-    this.jsvganimation = function() {}
+	// Define our constructor
+	this.jsvganimation = function() {}
 
-    // Public Methods
+	// Public Methods
 	jsvganimation.initSVG = function(rootElement) {
 
-        let svgElement = null;
-        if(rootElement.tagName.toLowerCase() === "svg") {
-            svgElement = rootElement;
-        } else if(rootElement.tagName.toLowerCase() !== "svg") {
-            svgElement = rootElement.querySelector("svg");
-            if(svgElement.tagName.toLowerCase() !== "svg") {
-                console.log("rootElement and its chidlren have no SVG to be found !");
-            }
-        }
+		let svgElement = null;
+		if(rootElement.tagName.toLowerCase() === "svg") {
+		    svgElement = rootElement;
+		} else if(rootElement.tagName.toLowerCase() !== "svg") {
+		    svgElement = rootElement.querySelector("svg");
+		    if(svgElement.tagName.toLowerCase() !== "svg") {
+			console.log("rootElement and its chidlren have no SVG to be found !");
+		    }
+		}
 
 		// INIT LINES
 		let svgLines = svgElement.querySelectorAll('path[data-type="line"]');
 		for (let i = 0, len = svgLines.length; i < len; i++) {
-	        let path = svgLines[i];
-	        let length = path.getTotalLength();
-	        path.style.fill = "none";
+		let path = svgLines[i];
+		let length = path.getTotalLength();
+		path.style.fill = "none";
 
-	        // Clear any previous transition
-	        path.style.transition = path.style.WebkitTransition = 'none';
+		// Clear any previous transition
+		path.style.transition = path.style.WebkitTransition = 'none';
 
-	        // Set up the starting positions (0)
-	        path.style.strokeDasharray = length + ' ' + length;
-	        path.style.strokeDashoffset = length;
-	        path.style.opacity = 1;
+		// Set up the starting positions (0)
+		path.style.strokeDasharray = length + ' ' + length;
+		path.style.strokeDashoffset = length;
+		path.style.opacity = 1;
 		}
 
 		// INIT FIGURES
 		let svgFigures = svgElement.querySelectorAll('path[data-type="figure"]');
 		for (let i = 0, len = svgFigures.length; i < len; i++) {
 			let path = svgFigures[i];
-	        path.style.opacity = 0;		
+		path.style.opacity = 0;		
 		}		
 
 		// LAUNCH LINES with data-show=start
@@ -129,7 +129,7 @@ jQuery.easing["jswing"]=jQuery.easing["swing"];jQuery.extend(jQuery.easing,{ease
 
 	function hideSvgFigure (path) {
 		let timing = path.getAttribute('data-timing') || 1;
-	    $(path).stop(true).animate({"opacity": 0}, path.style.opacity * timing * 1000, "easeOutCubic");
+	        $(path).stop(true).animate({"opacity": 0}, path.style.opacity * timing * 1000, "easeOutCubic");
 	}
 
 }());
