@@ -11,8 +11,8 @@ It is a JS plugin to animate your svgs on all browsers
 - data-stroke-width = **2** (only for **line**, size of thre stroke)
 
 # Initiating the plugin:
-1) Add **jQuery** + **jsvg-animation.js** into your page and load them in your HTML.
-2) Add your SVG, containing an unique **ID**, and set the opacity of this SVG to 0 in the HTML (NB: on page load and init, the SVG can blink otherwise).
+1) Add **jsvg-animation.js** into your page.
+2) Add your SVG, containing an unique **ID**, and set the opacity of this SVG to 0 in the HTML (NB: for some navigators, on page load and init, the SVG can blink otherwise).
 3) Init the SVG when you want (page load, on a special click, ...)
 
 # Launching the plugin:
